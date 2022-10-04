@@ -14,7 +14,7 @@ import java.util.Map;
 public class LocalizeAirtag extends AbstractWorker {
     private static final String AIRTAG_ID = "airtagId";
     private static final String LATITUDE = "lat";
-    private static final String LONGITUDE = "lon";
+    private static final String LONGITUDE = "lnt";
 
     private static final Map<String, Map<String, Double>> LOCATIONS = Map.of(
             "Statue of Liberty", Map.of(LATITUDE, 40.6892494, LONGITUDE, -74.04450039999999),
