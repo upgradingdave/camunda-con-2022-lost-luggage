@@ -1,0 +1,11 @@
+# IDEs and editors
+.idea/
+*.iml
+.vscode/
+
+# Compile output
+target/
+classes/
+
+# System Files
+*.DS_Store
