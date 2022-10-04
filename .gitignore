@@ -11,3 +11,5 @@ classes/
 *.DS_Store
 
 /.mvn/wrapper/maven-wrapper.jar
+/.classpath
+/.project
