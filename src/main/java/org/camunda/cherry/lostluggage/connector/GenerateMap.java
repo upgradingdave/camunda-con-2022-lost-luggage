@@ -17,7 +17,7 @@ public class GenerateMap extends AbstractWorker {
     private static final String LONGITUDE = "lon";
     private static final String IMAGE = "image";
 
-    public GenerateMap(String type, List<RunnerParameter> listInput, List<RunnerParameter> listOutput, List<BpmnError> listBpmnErrors) {
+    public GenerateMap() {
 
         super("sendmap",
             List.of(
@@ -25,7 +25,7 @@ public class GenerateMap extends AbstractWorker {
                 RunnerParameter.getInstance(LONGITUDE, "Longitude", String.class, RunnerParameter.Level.REQUIRED, "Longitude")
                 ),
             List.of(
-                //RunnerParameter.getInstance(IMAGE, "Image", Object.class, RunnerParameter.Level.REQUIRED, "Image")
+                RunnerParameter.getInstance(IMAGE, "Image", Object.class, RunnerParameter.Level.REQUIRED, "Image")
             ),
             Collections.emptyList()
         );
