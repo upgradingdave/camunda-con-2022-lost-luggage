@@ -15,7 +15,7 @@ import java.util.Map;
 public class GenerateMap extends AbstractWorker {
     private static final String LATITUDE = "lat";
     private static final String LONGITUDE = "lon";
-    private static final String IMAGE = "image";
+    private static final String IMAGE_URL = "imageURL";
 
     public GenerateMap() {
 
@@ -25,7 +25,7 @@ public class GenerateMap extends AbstractWorker {
                 RunnerParameter.getInstance(LONGITUDE, "Longitude", String.class, RunnerParameter.Level.REQUIRED, "Longitude")
                 ),
             List.of(
-                RunnerParameter.getInstance(IMAGE, "Image", Object.class, RunnerParameter.Level.REQUIRED, "Image")
+                RunnerParameter.getInstance(IMAGE_URL, "Image Url", Object.class, RunnerParameter.Level.REQUIRED, "Image Url")
             ),
             Collections.emptyList()
         );
@@ -52,7 +52,10 @@ public class GenerateMap extends AbstractWorker {
         String lon = getInputStringValue(LONGITUDE, null, activatedJob);
 
         // Build google static url and call url http client to call the url to get the image.
-        //setValue(LATITUDE, location.get(LATITUDE), contextExecution);
-       // setValue("lon", location.get("lon"), contextExecution);
+        String size = "500x400";
+        String GOOGLE_API_KEY = "AIzaSyBVkpHopbvXlup4-T0HNZcfyRGzKRfMxyY";
+        String url = "https://maps.googleapis.com/maps/api/staticmap?zoom=10&center="+lat+","+lon+"&size="+size+"&key="+ GOOGLE_API_KEY;
+
+        setValue(IMAGE_URL, url, contextExecution);
     }
 }
