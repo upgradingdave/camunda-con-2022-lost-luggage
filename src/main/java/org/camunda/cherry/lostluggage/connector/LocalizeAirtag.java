@@ -16,7 +16,7 @@ public class LocalizeAirtag extends AbstractWorker {
     private static final String LATITUDE = "lat";
     private static final String LONGITUDE = "lon";
 
-    private static final Map<String, Map<String, Object>> LOCATIONS = Map.of(
+    private static final Map<String, Map<String, Double>> LOCATIONS = Map.of(
             "Statue of Liberty", Map.of(LATITUDE, 40.6892494, LONGITUDE, -74.04450039999999),
             "Newark Airport", Map.of(LATITUDE, 40.6895314, LONGITUDE, -74.1744624),
             "JFK Airport", Map.of(LATITUDE, 40.6413113, LONGITUDE, -73.7781383),
@@ -29,8 +29,8 @@ public class LocalizeAirtag extends AbstractWorker {
         super("localize",
                 List.of(RunnerParameter.getInstance(AIRTAG_ID, "AirtagId", String.class, RunnerParameter.Level.REQUIRED, "Airtag ID")),
                 List.of(
-                        RunnerParameter.getInstance(LATITUDE, "Latitude", Double.class, RunnerParameter.Level.REQUIRED, "Latitude of the airtag"),
-                        RunnerParameter.getInstance(LONGITUDE, "Longitude", Double.class, RunnerParameter.Level.REQUIRED, "Longitude of the airtag")
+                        RunnerParameter.getInstance(LATITUDE, "Latitude", String.class, RunnerParameter.Level.REQUIRED, "Latitude of the airtag"),
+                        RunnerParameter.getInstance(LONGITUDE, "Longitude", String.class, RunnerParameter.Level.REQUIRED, "Longitude of the airtag")
                 ),
                 Collections.emptyList()
         );
@@ -55,8 +55,8 @@ public class LocalizeAirtag extends AbstractWorker {
     public void execute(final JobClient jobClient, final ActivatedJob activatedJob, ContextExecution contextExecution) {
         String airtagId = getInputStringValue(AIRTAG_ID, null, activatedJob);
 
-        Map<String, Object> location = LOCATIONS.get(airtagId);
-        setValue(LATITUDE, location.get(LATITUDE), contextExecution);
-        setValue("lon", location.get("lon"), contextExecution);
+        Map<String, Double> location = LOCATIONS.get(airtagId);
+        setValue(LATITUDE, Double.toString(location.get(LATITUDE)), contextExecution);
+        setValue("lon", Double.toString(location.get("lon")), contextExecution);
     }
 }
