@@ -1,15 +1,17 @@
-package org.camunda.community.lostluggage.connector;
+package org.camunda.cherry.lostluggage.connector;
 
 import io.camunda.zeebe.client.api.response.ActivatedJob;
 import io.camunda.zeebe.client.api.worker.JobClient;
 import org.camunda.cherry.definition.AbstractWorker;
 import org.camunda.cherry.definition.RunnerParameter;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class LocalizeAirtag extends AbstractWorker {
     private static final Map<String, List<Double>> LOCATIONS = Map.of(
         "Statue of Liberty", Arrays.asList(40.6892494, -74.04450039999999),
