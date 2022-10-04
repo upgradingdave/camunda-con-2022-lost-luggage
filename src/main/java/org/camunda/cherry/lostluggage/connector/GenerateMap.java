@@ -19,7 +19,7 @@ public class GenerateMap extends AbstractWorker {
 
     public GenerateMap(String type, List<RunnerParameter> listInput, List<RunnerParameter> listOutput, List<BpmnError> listBpmnErrors) {
 
-        super("localize",
+        super("sendmap",
             List.of(
                 RunnerParameter.getInstance(LATITUDE, "Latitude", String.class, RunnerParameter.Level.REQUIRED, "Latitude"),
                 RunnerParameter.getInstance(LONGITUDE, "Longitude", String.class, RunnerParameter.Level.REQUIRED, "Longitude")
