@@ -57,6 +57,6 @@ public class LocalizeAirtag extends AbstractWorker {
 
         Map<String, Double> location = LOCATIONS.get(airtagId);
         setValue(LATITUDE, Double.toString(location.get(LATITUDE)), contextExecution);
-        setValue("lon", Double.toString(location.get("lon")), contextExecution);
+        setValue(LONGITUDE, Double.toString(location.get(LONGITUDE)), contextExecution);
     }
 }
