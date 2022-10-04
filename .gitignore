@@ -9,3 +9,5 @@ classes/
 
 # System Files
 *.DS_Store
+
+/.mvn/wrapper/maven-wrapper.jar
